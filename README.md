@@ -45,25 +45,7 @@ This server uses `mito-ai-core` to build valid `AgentResponse` payloads for note
 
 ### Agent mode (automatic)
 
-When Mito runs in agent mode, the mock server now:
+When Mito runs in agent mode, the mock server:
 
 1. Returns a `cell_update` response on the first agent turn (inserts a new code cell).
 2. Returns `finished_task` on the next turn after Mito applies and runs the cell.
-
-### Direct endpoint
-
-Build a cell-insertion payload without going through chat completions:
-
-```bash
-curl -X POST http://127.0.0.1:8080/v1/mito/add-code-cell \
-  -H "Authorization: Bearer mito-dev-key" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "code": "import pandas as pd\nprint(pd.__version__)",
-    "after_cell_id": "new cell",
-    "message": "Adding pandas version check.",
-    "code_summary": "Check pandas version"
-  }'
-```
-
-`after_cell_id` can be an existing cell id from the notebook, or `"new cell"` to insert at the top.
