@@ -6,8 +6,9 @@ readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
     "fastapi>=0.139.0",
+    "mito-ai-core",
     "uvicorn>=0.50.2",
 ]
 
-[project.scripts]
-mito-mock-llm = "main:main"
+[tool.uv.sources]
+mito-ai-core = { path = "../mito/mito-ai-core", editable = true }
