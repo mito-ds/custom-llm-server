@@ -989,8 +989,8 @@ wheels = [
 
 [[package]]
 name = "mito-ai-core"
-version = "0.1.0"
-source = { editable = "../mito/mito-ai-core" }
+version = "0.1.2"
+source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "aiohttp" },
     { name = "analytics-python" },
@@ -1003,27 +1003,10 @@ dependencies = [
     { name = "sseclient-py" },
     { name = "tornado" },
 ]
-
-[package.metadata]
-requires-dist = [
-    { name = "aiohttp", specifier = ">=3.8.0" },
-    { name = "analytics-python" },
-    { name = "anthropic", specifier = ">=0.6.81" },
-    { name = "google-genai" },
-    { name = "jinja2", specifier = ">=3.0.3" },
-    { name = "litellm", marker = "extra == 'litellm'" },
-    { name = "mypy", marker = "extra == 'test'" },
-    { name = "openai", specifier = ">=1.0.0" },
-    { name = "pydantic" },
-    { name = "pytest", marker = "extra == 'test'" },
-    { name = "pytest-asyncio", marker = "extra == 'test'" },
-    { name = "pytest-timeout", marker = "extra == 'test'" },
-    { name = "requests", specifier = ">=2.25.0" },
-    { name = "sseclient-py", specifier = ">=1.8.0" },
-    { name = "tornado", specifier = ">=6.2.0" },
-    { name = "types-requests", marker = "extra == 'test'" },
+sdist = { url = "https://files.pythonhosted.org/packages/da/f1/e78c8a8b46032b059aec352c330202af3d566d35d572b3478ca3c497e869/mito_ai_core-0.1.2.tar.gz", hash = "sha256:c0f12e7802b1af1e20fab3ca54f239e385cb2395faf07b65989c9984a1c3b35d", size = 148909, upload-time = "2026-05-22T16:01:35.9Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/d4/09/8eb08f90caa29c195f508e25cde13c497d36a1038c372397733c475fb6e4/mito_ai_core-0.1.2-py3-none-any.whl", hash = "sha256:7207f0b858453317451e31919a33550306e931ce70db8d5d15e0b01c2365cdd7", size = 213719, upload-time = "2026-05-22T16:01:34.799Z" },
 ]
-provides-extras = ["litellm", "test"]
 
 [[package]]
 name = "mito-custom-llm-server"
@@ -1038,7 +1021,7 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "fastapi", specifier = ">=0.139.0" },
-    { name = "mito-ai-core", editable = "../mito/mito-ai-core" },
+    { name = "mito-ai-core", specifier = ">=0.1.2" },
     { name = "uvicorn", specifier = ">=0.50.2" },
 ]
 

@@ -6,9 +6,6 @@ readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
     "fastapi>=0.139.0",
-    "mito-ai-core",
+    "mito-ai-core>=0.1.2",
     "uvicorn>=0.50.2",
 ]
-
-[tool.uv.sources]
-mito-ai-core = { path = "../mito/mito-ai-core", editable = true }
