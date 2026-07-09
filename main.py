@@ -22,7 +22,6 @@ from pydantic import BaseModel
 API_KEY = "mito-dev-key"  # match LITELLM_API_KEY in your zprofile
 HOST = "127.0.0.1"
 PORT = 8080
-MODELS = ["openai/gpt-4.1", "anthropic/claude-haiku-4-5-20251001"]
 
 _TASK_RE = re.compile(r"<Task>\s*(.*?)\s*</Task>", re.DOTALL)
 _NOTEBOOK_RE = re.compile(r"<Notebook>\s*(\[.*?\])\s*</Notebook>", re.DOTALL)
@@ -192,18 +191,6 @@ async def _stream_response(model: str, content: str) -> AsyncIterator[str]:
 @app.get("/health")
 async def health() -> dict:
     return {"status": "ok", "service": "mito-custom-llm-server"}
-
-
-@app.get("/v1/models")
-async def list_models(authorization: Optional[str] = Header(default=None)) -> dict:
-    _check_auth(authorization)
-    return {
-        "object": "list",
-        "data": [
-            {"id": model, "object": "model", "created": int(time.time()), "owned_by": "custom"}
-            for model in MODELS
-        ],
-    }
 
 
 @app.post("/v1/chat/completions")
